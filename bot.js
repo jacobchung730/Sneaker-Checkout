@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
 // run "node bot.js" in terminal
 
 // URL for the intended item
-const product_url = "https://www.walmart.com/ip/Westcott-2-Piece-Compass-and-Protractor-Math-Tools-Assorted-Colors/38473104";
+const product_url = "https://www.walmart.com/ip/Westcott-2-Piece-Compass-and-Protractor-Math-Tools-Assorted-Colors/38473104"; // random link 
 
 // opens up your browser with the intended item and returns the page
 // helper function for checkout() 
@@ -38,23 +38,23 @@ async function addToCart(page) {
 // helper function for checkout() 
 async function fillBilling(page) {
   await page.waitForTimeout(1000);
-  await page.type('#firstName', 'Bob'); 
+  await page.type('#firstName', 'Bob'); // made up info 
   await page.waitForTimeout(100);
   await page.type('#lastName', 'Smith');
   await page.waitForTimeout(100);
-  await page.type('#addressLineOne', '2425 Pacheco St');
+  await page.type('#addressLineOne', '1 Hello St');
   await page.waitForTimeout(100);
-  await page.type('#phone', '4154895634');
+  await page.type('#phone', '1234567899');
   await page.waitForTimeout(100);
-  await page.type('#email', 'bobsmith@gmail.com');
+  await page.type('#email', 'hello@gmail.com');
   await page.waitForTimeout(100);
   const input = await page.$("input[id='city']");
   await input.click({clickCount: 3})
-  await input.type('San Francisco');
+  await input.type('New York');
   await page.waitForTimeout(100);
   const input2 = await page.$("input[id='postalCode']");
   await input2.click({clickCount: 3})
-  await input2.type('94116');
+  await input2.type('99999');
   await page.waitForTimeout(200);
   await page.$eval("button[class='button button--primary']", elem => elem.click());
 
@@ -64,7 +64,7 @@ async function fillBilling(page) {
 // helper function for checkout() 
 async function fillPayment(page) {
   await page.waitForTimeout(2000);
-  await page.type('#creditCard', '4024007103939509');
+  await page.type('#creditCard', '4024007103939509'); // made up info
   await page.waitForTimeout(100);
   await page.type('#month-chooser', '03');
   await page.waitForTimeout(100);
@@ -89,7 +89,7 @@ async function checkout() {
     await addToCart(page);
     await fillBilling(page);
     await fillPayment(page);
-    // await submitOrder(page); 
+    // await submitOrder(page); // commented out to not actually buy product
   } catch (error) {
     console.log(error);
   }
