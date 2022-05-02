@@ -1,9 +1,11 @@
-# sneaker-checkout
+# Sneaker Checkout Bot
 
-Sneaker Checkout Bot
+Parses HTML on webpage. 
 
-Parses HTML and uses Puppeteer to add item to cart, fill out checkout info
+Fills out checkout info and adds item to cart using Puppeteer.
 
-Will actually buy an item, fully automated 
+Fully automated and will actually checkout item.
+
+
 
 
